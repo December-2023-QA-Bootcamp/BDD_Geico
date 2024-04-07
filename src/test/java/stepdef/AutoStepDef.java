@@ -6,39 +6,118 @@ import io.cucumber.java.en.When;
 
 public class AutoStepDef 
 {
-	@Given("user in homepage")
-	public void user_in_homepage() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
+	@Given("user is in HomePage")
+	public void user_is_in_home_page() {
+
 	}
 
-	@Given("user is a valid user")
-	public void user_is_a_valid_user() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
+	@When("user enters zipcode <zipcode>")
+	public void user_enters_zipcode_zipcode() {
+
 	}
 
-	@Given("user has acceptable credit")
-	public void user_has_acceptable_credit() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
+	@Then("zipcode placeholder {string}")
+	public void zipcode_placeholder(String string) {
+
 	}
 
-	@When("user complete auto quote")
-	public void user_complete_auto_quote() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
+	@When("user clicks lob <lob>")
+	public void user_clicks_lob_lob() {
+
 	}
 
-	@Then("user will get a quote number")
-	public void user_will_get_a_quote_number() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
+	@Then("Validate startMyQuote titles")
+	public void validate_start_my_quote_titles() {
+
 	}
 
-	@Then("user will get quote amount")
-	public void user_will_get_quote_amount() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
+	@When("user clicks startMyQuote button")
+	public void user_clicks_start_my_quote_button() {
+
+	}
+
+	@Then("user is in BundlePage")
+	public void user_is_in_bundle_page() {
+
+	}
+
+	@When("user clicks continue button")
+	public void user_clicks_continue_button() {
+
+	}
+
+	@Then("user is in AboutYouPage")
+	public void user_is_in_about_you_page() {
+
+	}
+
+	@Then("DOB title is {string}")
+	public void dob_title_is(String string) {
+
+	}
+
+	@When("user clicks dob textbox")
+	public void user_clicks_dob_textbox() {
+
+	}
+
+	@Then("zipcode assist message display {string}")
+	public void zipcode_assist_message_display(String string) {
+
+	}
+
+	@When("user clicks Next button")
+	public void user_clicks_next_button() {
+
+	}
+
+	@Then("zipcode required error message display {string}")
+	public void zipcode_required_error_message_display(String string) {
+
+	}
+
+	@When("enter DOB <dob>")
+	public void enter_dob_dob() {
+
+	}
+
+	@Then("user is in TellUsAboutYourselfPage")
+	public void user_is_in_tell_us_about_yourself_page() {
+
+	}
+
+	@Then("firstName title is {string}")
+	public void first_name_title_is(String string) {
+
+	}
+
+	@Then("lastName title is {string}")
+	public void last_name_title_is(String string) {
+
+	}
+
+	@Then("firstName required error message display {string}")
+	public void first_name_required_error_message_display(String string) {
+
+	}
+
+	@Then("lastName required error message display {string}")
+	public void last_name_required_error_message_display(String string) {
+
+	}
+
+	@When("user enters firstName <firstName>")
+	public void user_enters_first_name_first_name() {
+
+	}
+
+	@When("user enters lastName <lastName>")
+	public void user_enters_last_name_last_name() {
+
+	}
+
+	@Then("user is in AddressPage")
+	public void user_is_in_address_page() {
+
 	}
 }
