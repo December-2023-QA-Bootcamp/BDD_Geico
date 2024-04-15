@@ -1,24 +1,31 @@
 package stepdef;
 
+import bdd.geico.base.TestBase;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AutoStepDef 
+public class AutoStepDef extends TestBase
 {
 	@Given("user is in HomePage")
 	public void user_is_in_home_page() {
-
+		homePageValidation.validateTitle("An Insurance Company For Your Car And More | GEICO");
+		homePageValidation.validateAnnouncement("Our Commitment to Diversity, Equity and Inclusion");
+		homePageValidation.valdiateBannerList("Español","Log In","Menu");
+		homePageValidation.validateSection1Heading("The Insurance Savings You Expect");
+		homePageValidation.valdiateLOBs("Auto", "Homeowners", "Renters", "Motorcycle/ ATV", "Boat", "Business");
+		homePageValidation.validateFeedbackBtnText("Feedback");
+		homePageValidation.validateZipCodeHeading("See how much you could save! Let's get started by entering your ZIP Code:");
 	}
 
+	@Given("zipcode placeholder {string}")
+	public void zipcode_placeholder(String string) {
+		homePageValidation.valdiateZipCodePlaceholder(string);
+	}
+	
 	@When("user enters zipcode <zipcode>")
 	public void user_enters_zipcode_zipcode() {
-
-	}
-
-	@Then("zipcode placeholder {string}")
-	public void zipcode_placeholder(String string) {
-
+		homePageAction.inputZipCode("11418");
 	}
 
 	@When("user clicks lob <lob>")

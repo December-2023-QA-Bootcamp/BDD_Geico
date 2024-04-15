@@ -1,0 +1,4 @@
+Hooks = io.cucumber has @BeforeAll, @AfterAll, @Before, @After, which refers as hooks.
+TestNG - @BeforeTest, @AfterTest, @BeforeMethod, @AfterMethod
+JUnit - @BeforeAll, @AfterAll, @Beafore/@BeforeEach, @After/@AfterEach
+Cucumber - @BeforeAll, @AfterAll, @Before, @After
