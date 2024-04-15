@@ -1,11 +1,11 @@
 Feature: Auto Quote Tests
 
-Background:
-Given user is in HomePage
+  Background: 
+    Given user is in HomePage
 
   Scenario: Validate the Auto Quote for Valid and Acceptable credit user
+    Given zipcode placeholder '5-Digit ZIP Code'
     When user enters zipcode <zipcode>
-    Then zipcode placeholder '5-Digit ZIP Code'
     When user clicks lob <lob>
     Then Validate startMyQuote titles
     When user clicks startMyQuote button

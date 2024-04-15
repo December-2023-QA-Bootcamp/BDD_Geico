@@ -2,6 +2,14 @@ package bdd.geico.constant;
 
 public interface IResource 
 {	
+	public interface IBrowser
+	{
+		String CHROME 	= "chrome";
+		String FIREFOX 	= "firefox";
+		String SAFARI	= "safari";
+		String EDGE		= "edge";
+	}
+	
 	/*
 	 * Properties File Resource Name
 	 */

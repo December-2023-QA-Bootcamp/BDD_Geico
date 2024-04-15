@@ -9,6 +9,10 @@ public class ReadConfigProperty
 {
 	private Properties properties;
 	
+	/**
+	 * 
+	 * @param propertyName {@link IProperties}
+	 */
 	public ReadConfigProperty(String propertyName) 
 	{
 		initProperty(propertyName);
@@ -27,6 +31,11 @@ public class ReadConfigProperty
 		}
 	}
 	
+	/**
+	 * 
+	 * @param key {@link Key}
+	 * @return String property value from resources/**.properties
+	 */
 	public String getKeyValue(Key key) 
 	{
 		return properties.getProperty(key.getPropertyKey());
