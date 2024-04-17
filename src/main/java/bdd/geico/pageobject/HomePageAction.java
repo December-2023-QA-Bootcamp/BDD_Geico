@@ -8,14 +8,28 @@ public class HomePageAction extends HomePageValidation{
 		super(driver);
 	}
 
+	
 	// ---------------- Action -------------------
 	
 	/**
-	 * Input zip code value
+	 * Input Zip code value
 	 * @param zipCode
 	 */
 	public void inputZipCode(String zipCode) {
 		helper.inputText(zipCodeInputElement, zipCode);
 	}
 	
+	/**
+	 * Click LOB by index
+	 */
+	public void clickLob(int index) {
+		helper.clickElement(LOBs.get(index));
+	}
+	
+	/**
+	 * Click Submit My Quote Button
+	 */
+	public void clickSubmitBtn() {
+		helper.clickElement(submitMyQuoteBtn);
+	}
 }

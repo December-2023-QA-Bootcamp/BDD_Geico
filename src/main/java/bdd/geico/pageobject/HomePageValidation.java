@@ -47,14 +47,28 @@ public class HomePageValidation
 	private List<WebElement> bannerList;
 	
 	@FindBy(xpath = "(//div[@class='product-cards'])[1]/div")
-	private List<WebElement> LOBs;
+	List<WebElement> LOBs;
 	
+	@FindBy(className = "view-more-products")
+	private WebElement viewMoreProductElement;
+	
+	@FindBy(className = "products")
+	private WebElement selectedLobElement;
+	
+	@FindBy(css = "#recall-links.mobile>p#recall_link")
+	private WebElement savedQuotesElement;
+	
+	@FindBy(css = "#recall-links.mobile>p#agents_link")
+	private WebElement findAgentElement;
+	
+	@FindBy(id = "bundleModalBtn")
+	WebElement submitMyQuoteBtn;
 	
 	//-------------- Validation --------------
 	
 	/**
 	 * Validating the current page title
-	 * @param expected
+	 * @param expected HomePage title
 	 */
 	public void validateTitle(String expected) {
 		String actual = helper.getPageTitle();
@@ -65,7 +79,7 @@ public class HomePageValidation
 	
 	/**
 	 * Validating the special announcement in HomePage
-	 * @param expected
+	 * @param expected announcement header
 	 */
 	public void validateAnnouncement(String expected) {
 		String actual = helper.getTextValue(announcementTextElement);
@@ -76,7 +90,7 @@ public class HomePageValidation
 	
 	/**
 	 * Validating Section 1 Header in HomePage
-	 * @param expected
+	 * @param expected middle header
 	 */
 	public void validateSection1Heading(String expected) {
 		String actual = helper.getTextValue(section1headTextElement);
@@ -87,7 +101,7 @@ public class HomePageValidation
 	
 	/**
 	 * Validating Zip Code Header in HomePage
-	 * @param expected
+	 * @param expected zip code header
 	 */
 	public void validateZipCodeHeading(String expected) {
 		String actual = helper.getTextValue(zipCodeHeaderTextElement);
@@ -98,7 +112,7 @@ public class HomePageValidation
 	
 	/**
 	 * Validate Zip Code PlaceHolder value
-	 * @param expected
+	 * @param expected zip code place holder title
 	 */
 	public void valdiateZipCodePlaceholder(String expected) {
 		String actual = helper.getPlaceHolderValue(zipCodeInputElement);
@@ -109,7 +123,7 @@ public class HomePageValidation
 	
 	/**
 	 * Validating Feedback Button text in HomePage
-	 * @param expected
+	 * @param expected Feedback title
 	 */
 	public void validateFeedbackBtnText(String expected) {
 		String actual = helper.getTextValue(feedBackBtnElement);
@@ -120,7 +134,7 @@ public class HomePageValidation
 	
 	/**
 	 * Validating the Banners from HomePage
-	 * @param banners
+	 * @param banner names
 	 */
 	public void valdiateBannerList(String... banners) {
 		for(int i = 0; i < banners.length; i++) {
@@ -133,7 +147,7 @@ public class HomePageValidation
 	
 	/**
 	 * Validating the LOBs of Geico HomePage
-	 * @param lobs
+	 * @param LOBs Line Of Business product names
 	 */
 	public void valdiateLOBs(String... lobs) {
 		for(int i = 0; i < lobs.length; i++) {
@@ -142,5 +156,60 @@ public class HomePageValidation
 			
 			Assert.assertEquals(lobs[i], actual);
 		}
+	}
+	
+	/**
+	 * Validating View More Insurance Types title in HomePage
+	 * @param expected title of View More Insurance Types
+	 */
+	public void validateViewMoreInsuranceTypesTitle(String expected) {
+		String actual = helper.getTextValue(viewMoreProductElement);
+		LOGGER.info(String.format("Expected : [%s], Actual : [%s]", expected, actual));
+		
+		Assert.assertEquals(expected, actual);
+	}
+	
+	/**
+	 * Validate selected LOB in HomePage
+	 * @param expected selected LOB product name
+	 */
+	public void validateSelectedLobTitle(String expected) {
+		String actual = helper.getTextValue(selectedLobElement);
+		LOGGER.info(String.format("Expected : [%s], Actual : [%s]", expected, actual));
+		
+		Assert.assertEquals(expected, actual);
+	}
+	
+	/**
+	 * Validating Saved Quotes Element Title
+	 * @param expected Saved Quotes Element Title
+	 */
+	public void validateSavedQuotesTitle(String expected) {
+		String actual = helper.getTextValue(savedQuotesElement);
+		LOGGER.info(String.format("Expected : [%s], Actual : [%s]", expected, actual));
+		
+		Assert.assertEquals(expected, actual);
+	}
+	
+	/**
+	 * Validating Find An Agent Near You Title
+	 * @param expected Find An Agent Near You Title
+	 */
+	public void validateFindAgentTitle(String expected) {
+		String actual = helper.getTextValue(findAgentElement);
+		LOGGER.info(String.format("Expected : [%s], Actual : [%s]", expected, actual));
+		
+		Assert.assertEquals(expected, actual);
+	}
+	
+	/**
+	 * Validating Submit My Quote Button Title
+	 * @param expected Submit My Quote Button Title
+	 */
+	public void validateSubmitMyQuoteBtnTitle(String expected){
+		String actual = helper.getTextValue(submitMyQuoteBtn);
+		LOGGER.info(String.format("Expected : [%s], Actual : [%s]", expected, actual));
+		
+		Assert.assertEquals(expected, actual);
 	}
 }

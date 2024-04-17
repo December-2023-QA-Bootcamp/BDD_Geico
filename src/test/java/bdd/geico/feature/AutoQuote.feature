@@ -1,12 +1,14 @@
+@regression
 Feature: Auto Quote Tests
 
   Background: 
     Given user is in HomePage
 
+  @auto-quote
   Scenario: Validate the Auto Quote for Valid and Acceptable credit user
     Given zipcode placeholder '5-Digit ZIP Code'
-    When user enters zipcode <zipcode>
-    When user clicks lob <lob>
+    When user enters zipcode '11418'
+    When user clicks lob 'auto'
     Then Validate startMyQuote titles
     When user clicks startMyQuote button
     Then user is in BundlePage
@@ -29,3 +31,20 @@ Feature: Auto Quote Tests
     And user enters lastName <lastName>
     And user clicks Next button
     Then user is in AddressPage
+
+  @smoke
+  Scenario Outline: HomePage Smoke <lob>
+    Given zipcode placeholder '5-Digit ZIP Code'
+    When user enters zipcode <zip_code>
+    When user clicks lob <lob>
+    Then Validate startMyQuote titles
+    When user clicks startMyQuote button
+    Then user is in BundlePage
+    When user clicks continue button
+    Then user is in AboutYouPage
+
+    Examples: 
+      | lob         | zip_code |
+      | 'auto'      | '11416'  |
+      | 'homeowner' | '11409'  |
+      | 'renter'    | '10102'  |

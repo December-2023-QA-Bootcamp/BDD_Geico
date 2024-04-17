@@ -10,6 +10,13 @@ public interface IResource
 		String EDGE		= "edge";
 	}
 	
+	public interface ILob
+	{
+		String AUTO		= "auto";
+		String HOME		= "homeowner";
+		String RENTER	= "renter";
+	}
+	
 	/*
 	 * Properties File Resource Name
 	 */
