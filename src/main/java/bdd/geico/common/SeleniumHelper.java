@@ -28,6 +28,7 @@ public class SeleniumHelper
 	}
 	
 	public String getTextValue(WebElement element) {
+		waitForElementToBeVisible(element, 5);
 		LOGGER.info(element + " ----> has text : " +  element.getText());
 		return element.getText();
 	}

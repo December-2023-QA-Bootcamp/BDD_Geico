@@ -9,6 +9,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import bdd.geico.constant.Key;
+import bdd.geico.pageobject.AboutYouPage;
+import bdd.geico.pageobject.BundlePopUp;
 import bdd.geico.pageobject.HomePageAction;
 import bdd.geico.pageobject.HomePageValidation;
 import bdd.geico.constant.IResource.IBrowser;
@@ -20,8 +22,12 @@ public class TestBase {
 
 	public static WebDriver driver;
 	
-	public static HomePageValidation homePageValidation;
-	public static HomePageAction homePageAction;
+	// ------------ Page Objects ---------------
+	
+	public static HomePageValidation 	homePageValidation;
+	public static HomePageAction 		homePageAction;
+	public static BundlePopUp 			bundlePopUp;
+	public static AboutYouPage 			aboutYouPage;
 	
 	
 	private ReadConfigProperty configProperty;
@@ -68,8 +74,10 @@ public class TestBase {
 	
 	
 	public void initPageObject() {
-		homePageValidation = new HomePageValidation(driver);
-		homePageAction = new HomePageAction(driver);
+		homePageValidation 	= new HomePageValidation(driver);
+		homePageAction 		= new HomePageAction(driver);
+		bundlePopUp 		= new BundlePopUp(driver);
+		aboutYouPage 		= new AboutYouPage(driver);
 	}
 	
 	

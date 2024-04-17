@@ -1,0 +1,40 @@
+TDD - Test Driven Development
+BDD - Behaviour Driven Development
+
+Gherkin Syntax - Feature, Background, Sceanrio, Sceanrio Outline, Examples, Given, When, Then, And
+
+Feature file - Create a feature file. Name of your file should ends with .feature. e.g. sample.feature
+
+
+Feature File
+- Feature: Validating pop-up on homepage
+- Background: @BeforeMethod - steps here will run each time before executing any test/sceanrio
+- Scenario: Test / Behabiour of the application defined here
+- Sceanrio Outline: Same Test Steps with different test data sets
+- Examples: this will hold test data sets for Scenario Outline
+- Given: Pre-Condition / Pre-Steps
+- When: Actions
+- Then: Validation / Assertion
+
+Behaviour:
+
+Behaviour / Acceptence Criteria
+
+Given user is in the homepage
+
+When user insert zipcode '11423'
+And user click getQuote button
+Then the page title will be 'Home | AAA Northeast'
+
+TDD									BDD
+TestClass.java						SomeFeature.feature
+Test 								Sceanrio / Sceanario Outline
+comments */* //						#
+groups={"regression","smoke"}		tags (@regression @smoke)
+suite=testng-regression.xml			junit runner
+	junit-runner.java				
+
+
+BDD Framework - Cucumber JVM BDD, JBehave, Serenity
+
+pom.xml - selenium - java, cucumber jvm, cucumber junit

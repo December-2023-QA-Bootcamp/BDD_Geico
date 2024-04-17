@@ -1,12 +1,15 @@
 package stepdef;
 
 import bdd.geico.base.TestBase;
+import static bdd.geico.constant.IResource.ILob.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class AutoStepDef extends TestBase
 {
+	String selectedLob = "";
+	
 	@Given("user is in HomePage")
 	public void user_is_in_home_page() {
 		homePageValidation.validateTitle("An Insurance Company For Your Car And More | GEICO");
@@ -23,39 +26,63 @@ public class AutoStepDef extends TestBase
 		homePageValidation.valdiateZipCodePlaceholder(string);
 	}
 	
-	@When("user enters zipcode <zipcode>")
-	public void user_enters_zipcode_zipcode() {
-		homePageAction.inputZipCode("11418");
+	@When("user enters zipcode {string}")
+	public void user_enters_zipcode_zipcode(String string) {
+		homePageAction.inputZipCode(string);
 	}
 
-	@When("user clicks lob <lob>")
-	public void user_clicks_lob_lob() {
-
+	@When("user clicks lob {string}")
+	public void user_clicks_lob_lob(String string) {
+		switch (string) {
+		case AUTO:
+			homePageAction.clickLob(0);
+			selectedLob = "Auto";
+			break;
+		case HOME:
+			homePageAction.clickLob(1);
+			selectedLob = "Homeowners";
+			break;
+		case RENTER:
+			homePageAction.clickLob(2);
+			selectedLob = "Renters";
+			break;
+		default:
+			homePageAction.clickLob(0);
+			break;
+		}
 	}
 
 	@Then("Validate startMyQuote titles")
 	public void validate_start_my_quote_titles() {
-
+		homePageValidation.validateViewMoreInsuranceTypesTitle("View More Insurance Types");
+		homePageValidation.validateSelectedLobTitle(selectedLob);
+		homePageValidation.validateSavedQuotesTitle("Continue Your Saved Quote");
+		homePageValidation.validateFindAgentTitle("Find an Agent Near You");
+		homePageValidation.validateSubmitMyQuoteBtnTitle("Start My Quote");
 	}
 
 	@When("user clicks startMyQuote button")
 	public void user_clicks_start_my_quote_button() {
-
+		homePageAction.clickSubmitBtn();
 	}
 
 	@Then("user is in BundlePage")
 	public void user_is_in_bundle_page() {
-
+		bundlePopUp.validateBundleHeader("You're getting an auto quote today!");
+		bundlePopUp.validateBundleZipCodeTitle("Enter your ZIP code:");
+		bundlePopUp.validateQuesWantToBundleTitle("Want to bundle your policy?");
+		bundlePopUp.validatingSaveMoreTitle("Add property insurance and you could save even more.");
+		bundlePopUp.validateAdditionalLobs("Homeowners","Renters");
 	}
 
 	@When("user clicks continue button")
 	public void user_clicks_continue_button() {
-
+		bundlePopUp.clickContinue();
 	}
 
 	@Then("user is in AboutYouPage")
 	public void user_is_in_about_you_page() {
-
+		aboutYouPage.validateAboutYouTitle("About You");
 	}
 
 	@Then("DOB title is {string}")
